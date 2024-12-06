@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.UserMapper">
+    <!-- 查询所有用户 -->
+    <select id="getAllUsers" resultType="com.test.domain.User">
+        SELECT * FROM spring_test.users
+    </select>
+    <!-- 查询指定用户 -->
+    <select id="getUserById" parameterType="java.lang.Long" resultType="com.test.domain.User">
+        SELECT * FROM spring_test.users WHERE id = #{id}
+    </select>
+    <!-- 更新用户信息 -->
+    <update id="updateUser" parameterType="com.test.domain.User">
+        UPDATE users
+        SET
+        name = #{name},
+        email = #{email}
+        WHERE id = #{id}
+    </update>
+</mapper>

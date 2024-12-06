@@ -1,0 +1,16 @@
+spring:
+  thymeleaf:
+    cache=false:
+  shell:
+    enabled: false
+  jpa:
+    open-in-view: false  # 禁用 JPA open-in-view
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_test?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: Zrcc142857
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.test.domain

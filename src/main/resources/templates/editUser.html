@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑用户</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="title">编辑用户信息</h1>
+    <form action="/users/updateUser" method="post" style="display: flex; flex-direction: column; gap: 20px;">
+        <input type="hidden" name="id" th:value="${user.id}">
+
+        <div>
+            <label for="name" style="font-weight: bold; margin-bottom: 5px; display: block;">姓名：</label>
+            <input type="text" id="name" name="name" th:value="${user.name}" placeholder="请输入姓名" required
+                   style="padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
+        </div>
+
+        <div>
+            <label for="email" style="font-weight: bold; margin-bottom: 5px; display: block;">Email：</label>
+            <input type="email" id="email" name="email" th:value="${user.email}" placeholder="请输入Email" required
+                   style="padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
+        </div>
+
+        <button type="submit" style="align-self: center;">保存</button>
+    </form>
+</div>
+</body>
+</html>
