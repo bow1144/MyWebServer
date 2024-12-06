@@ -63,4 +63,16 @@ public class UserController {
         // 重定向到用户列表页面
         return "redirect:/users";
     }
+
+    // 删除用户
+    @PostMapping("/deleteUser")
+    @ResponseBody  // 表示返回的不是视图，而是响应的内容（JSON）
+    public String deleteUser(@RequestParam("id") Long userId) {
+        try {
+            userService.deleteUser(userId);  // 调用服务层删除用户
+            return "redirect:/users";  // 返回成功标识
+        } catch (Exception e) {
+            return "error";  // 返回失败标识
+        }
+    }
 }

@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>编辑用户</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <div class="container">
-    <h1 class="title">编辑用户信息</h1>
+    <div class="header">
+        <h1 class="title">编辑用户信息</h1>
+        <!-- 删除按钮容器 -->
+        <div class="button-container">
+            <button th:attr="onclick='deleteUser('+${user.id}+')'" class="delete-user-btn">删除用户</button>
+        </div>
+    </div>
     <form action="/users/updateUser" method="post" style="display: flex; flex-direction: column; gap: 20px;">
         <input type="hidden" name="id" th:value="${user.id}">
 
@@ -27,5 +34,34 @@
         <button type="submit" style="align-self: center;">保存</button>
     </form>
 </div>
+
+<!-- JavaScript -->
+<script>
+    // 删除用户的函数，带二次确认
+    function deleteUser(userId) {
+        // 弹出确认框
+        var confirmation = confirm("确定删除用户(ID: " + userId + ") 吗？");
+        // 如果用户点击了“确认”按钮
+        if (confirmation) {
+            // 使用AJAX发送删除请求
+            $.ajax({
+                url: '/users/deleteUser', // 删除请求的 URL
+                type: 'POST',             // 使用 POST 请求
+                data: { id: userId },     // 传递用户ID
+                success: function(response) {
+                    // 如果删除成功，移除当前用户的行
+                    console.log('删除响应: ', response);
+                    alert('删除成功！');
+                    $('#user-' + userId).remove(); // 删除当前用户的行
+                },
+                error: function(xhr, status, error) {
+                    // 发生错误时，提示用户
+                    console.log('删除失败，错误信息: ', error);
+                    alert('删除失败，请稍后再试。');
+                }
+            });
+        }
+    }
+</script>
 </body>
 </html>

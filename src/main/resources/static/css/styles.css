@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    background-color: #d6eaf8 ;
     color: #333;
     display: flex;
     justify-content: center;
@@ -23,7 +23,7 @@ body {
 }
 
 .add-user-btn {
-    background-color: #4CAF50;
+    background-color: #f7dc6f;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -34,7 +34,22 @@ body {
 }
 
 .add-user-btn:hover {
-    background-color: #45a049;
+    background-color: #F4D03F;
+}
+
+.delete-user-btn {
+    background-color: #EC7063;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+.delete-user-btn:hover {
+    background-color: #e74c3c ;
 }
 
 /* 容器样式 */

@@ -10,7 +10,10 @@
 <div class="container">
     <div class="header">
         <h1 class="title">用户信息</h1>
-        <button th:attr="onclick='addUser()'">添加用户</button>
+        <!-- 添加和删除按钮容器 -->
+        <div class="button-container">
+            <button th:attr="onclick='addUser()'" class="action-btn add-user-btn">添加用户</button>
+        </div>
     </div>
     <table class="user-table">
         <thead>
@@ -49,7 +52,7 @@
         // 跳转到编辑页面，不传递参数
         window.location.href = '/users/addUser';
     }
- </script>
+</script>
 
 </body>
 </html>
