@@ -44,4 +44,23 @@ public class UserController {
         // 重定向到用户列表页面
         return "redirect:/users";
     }
+
+    @GetMapping("/addUser")
+    public String addUserPage(Model model) {
+        // 创建一个空的 User 对象用于表单绑定
+        model.addAttribute("user", new User());
+        return "addUser"; // 显示新增用户页面 (addUser.html)
+    }
+
+    @PostMapping("/addUser")
+    public String addUser(@ModelAttribute User user) {
+        // 打印接收到的用户信息，调试用
+        System.out.println("Received User Data: " + user);
+
+        // TODO: 调用服务层保存用户
+        userService.addUser(user);
+
+        // 重定向到用户列表页面
+        return "redirect:/users";
+    }
 }

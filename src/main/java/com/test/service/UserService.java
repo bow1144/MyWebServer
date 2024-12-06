@@ -29,4 +29,11 @@ public class UserService {
         }
         userMapper.updateUser(user);
     }
+
+    public void addUser(User user) {
+        if (user.getName() == null || user.getEmail() == null) {
+            throw new IllegalArgumentException("用户名和邮箱不能为空");
+        }
+        userMapper.addUser(user); // 调用 MyBatis 插入方法
+    }
 }

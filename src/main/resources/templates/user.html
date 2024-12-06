@@ -8,7 +8,10 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="title">用户信息</h1>
+    <div class="header">
+        <h1 class="title">用户信息</h1>
+        <button th:attr="onclick='addUser()'">添加用户</button>
+    </div>
     <table class="user-table">
         <thead>
         <tr>
@@ -40,7 +43,13 @@
         // 跳转到编辑页面，并传递用户ID作为参数
         window.location.href = '/users/editUser?id=' + userId;
     }
-</script>
+
+    // 添加用户
+    function addUser() {
+        // 跳转到编辑页面，不传递参数
+        window.location.href = '/users/addUser';
+    }
+ </script>
 
 </body>
 </html>

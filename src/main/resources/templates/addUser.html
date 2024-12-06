@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑用户</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="title">添加用户</h1>
+    <form action="/users/addUser" method="post" style="display: flex; flex-direction: column; gap: 20px;">
+        <div>
+            <label for="id" class="label">学号：</label>
+            <input type="text" id="id" name="id" class="input-field" placeholder="请输入学号" required>
+        </div>
+
+        <div>
+            <label for="name" class="label">姓名：</label>
+            <input type="text" id="name" name="name" class="input-field" placeholder="请输入姓名" required>
+        </div>
+
+        <div>
+            <label for="email" class="label">Email：</label>
+            <input type="email" id="email" name="email" class="input-field" placeholder="请输入Email" required>
+        </div>
+
+        <button type="submit" style="align-self: center;">确认添加</button>
+    </form>
+
+</div>
+</body>
+</html>
