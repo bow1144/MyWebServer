@@ -52,4 +52,10 @@ public class UserService {
         System.out.println("Try to get" + userId + "'s detail");
         return userMapper.getDetailById(userId);
     }
+
+    // 获取近30天一个用户考勤的列表
+    public List<LocalDateTime> getMonthlyDetail(Long userId) {
+        System.out.println("Try to get" + userId + "'s detail");
+        return userMapper.getMonthlyDetailById(userId);
+    }
 }

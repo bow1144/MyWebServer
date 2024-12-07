@@ -1,6 +1,7 @@
 package com.test.controller;
 
 import com.test.details.userDetails;
+import com.test.details.userStatistic;
 import com.test.domain.User;
 import com.test.service.UserService;
 import com.test.attendance.attendanceService;
@@ -85,10 +86,8 @@ public class UserController {
     // 查询用户详情
     @GetMapping("/details")
     public String detailsPage(@RequestParam("id") Long userId, Model model) {
-        System.out.println("尝试连接服务层");
         List<LocalDateTime> attendance = userService.getDetail(userId);
         User user = userService.getUserById(userId);
-        System.out.println("获取用户"+userId+"的信息");
 
         Map<LocalDate, List<String>> attendanceByDate = attendanceService.groupAttendanceByDate(attendance);
         Map<LocalDate, List<Boolean>> validityMap = attendanceService.checkAttendanceValidity(attendance);
@@ -97,8 +96,42 @@ public class UserController {
         model.addAttribute("user", user);
         model.addAttribute("attendanceByDate", attendanceByDate);
         model.addAttribute("validityMap", validityMap);
+        model.addAttribute("userId", userId);
 
         return "userDetail";
+    }
+
+    // 用户考勤数据统计页面
+    @GetMapping("/statistic")
+    public String statisticPage(@RequestParam("id") Long userId, Model model) {
+        List<LocalDateTime> attendance = userService.getMonthlyDetail(userId);
+        User user = userService.getUserById(userId);
+
+        // 过去七天,30天出勤准时率
+        double weeklyAttendanceRate = attendanceService.getWeeklyAttendanceRate(attendance);
+        double monthlyAttendanceRate = attendanceService.getMonthlyAttendanceRate(attendance);
+
+        // 过去七天，30天平均出勤时长
+        double weeklyAvgTime = -attendanceService.getAverageWorkTime4Last7Days(attendance);
+        double monthlyAvgTime = -attendanceService.getAverageWorkTime4Last30Days(attendance);
+
+        System.out.println(weeklyAttendanceRate);
+        System.out.println(monthlyAttendanceRate);
+        System.out.println(weeklyAvgTime);
+        System.out.println(monthlyAvgTime);
+
+        userStatistic statistic = new userStatistic(
+                Math.round(weeklyAttendanceRate * 100.0),
+                Math.round(monthlyAttendanceRate * 100.0),
+                Math.round(weeklyAvgTime * 100.0) / 100.0,
+                Math.round(monthlyAvgTime * 100.0) / 100.0);
+
+        model.addAttribute("user", user);
+        model.addAttribute("userId", userId);
+        model.addAttribute("attendance", attendance);
+        model.addAttribute("statistic", statistic);
+
+        return "statistic";
     }
 
 }

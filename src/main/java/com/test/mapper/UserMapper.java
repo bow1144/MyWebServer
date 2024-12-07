@@ -24,4 +24,6 @@ public interface UserMapper {
     void deleteUserById(Long id);
 
     List<LocalDateTime> getDetailById(Long id);
+
+    List<LocalDateTime> getMonthlyDetailById(Long id);
 }

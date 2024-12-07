@@ -15,6 +15,14 @@ body {
     min-height: 100vh;
     margin: 0;
 }
+
+h1 {
+    text-align: center;         /* 居中标题 */
+    margin-bottom: 24px;        /* 增加标题与表格之间的间距 */
+    font-size: 30px;            /* 设置标题大小 */
+    color: #1150af;                /* 设置标题颜色 */
+}
+
 .header {
     display: flex;
     justify-content: space-between;

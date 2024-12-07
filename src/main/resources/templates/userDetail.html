@@ -9,9 +9,9 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>用户 <span th:text="${user.name}"></span> 的考勤记录</h1>
+        <h1> <span th:text="${user.name}"></span> 的考勤记录：</h1>
         <div class="button-container">
-            <button th:attr="onclick='showStatistic()'" class="action-btn statistic-btn">打卡数据统计</button>
+            <button th:attr="onclick='showStatistic(' + ${userId} + ')'" class="action-btn statistic-btn">打卡数据统计</button>
         </div>
     </div>
 
@@ -46,8 +46,9 @@
 </div>
 
 <script>
-    function showStatistics() {
+    function showStatistic(userId) {
         // 跳转到统计界面
+        window.location.href = '/users/statistic?id=' + userId
     }
 </script>
 
