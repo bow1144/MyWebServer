@@ -9,7 +9,7 @@ class AttendanceGenerator:
         self.MYSQL_HOST = 'localhost'
         self.MYSQL_DB = 'spring_test'
         self.MYSQL_USER = 'root'
-        self.MYSQL_PWD = 'Zrcc142857'
+        self.MYSQL_PWD = DB_PASSWORD
         self.MTSQL_TABLE = 'test'
 
         self.connect = pymysql.connect(
