@@ -8,7 +8,12 @@
 </head>
 <body>
 <div class="container">
-    <h1>用户 <span th:text="${user.name}"></span> 的考勤记录</h1>
+    <div class="header">
+        <h1>用户 <span th:text="${user.name}"></span> 的考勤记录</h1>
+        <div class="button-container">
+            <button th:attr="onclick='showStatistic()'" class="action-btn statistic-btn">打卡数据统计</button>
+        </div>
+    </div>
 
     <div th:each="entry : ${attendanceByDate}">
         <!-- 按 3x2 格式显示每个日期的考勤记录 -->
@@ -39,5 +44,12 @@
         </table>
     </div>
 </div>
+
+<script>
+    function showStatistics() {
+        // 跳转到统计界面
+    }
+</script>
+
 </body>
 </html>

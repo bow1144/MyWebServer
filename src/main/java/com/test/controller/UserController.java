@@ -82,7 +82,6 @@ public class UserController {
         }
     }
 
-    // TODO:数据改造，按天为单位传入前端
     // 查询用户详情
     @GetMapping("/details")
     public String detailsPage(@RequestParam("id") Long userId, Model model) {

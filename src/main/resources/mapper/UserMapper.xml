@@ -39,5 +39,7 @@
         SELECT update_at
         FROM spring_test.attendances
         WHERE id = #{id}
+        ORDER BY update_at DESC
+        LIMIT 42
     </select>
 </mapper>

@@ -174,11 +174,21 @@ button:hover {
 }
 
 button.detail-btn {
-    background-color: #5dade2  ;
+    background-color: #5dade2;
 }
 
 button.detail-btn:hover {
-    background-color: #3498db  ;
+    background-color: #3498db;
+}
+
+button.statistic-btn {
+    padding: 12px 24px;
+    background-color: #292999
+}
+
+button.statistic-btn:hover{
+    padding: 12px 24px;
+    background-color: #191970
 }
 
 /* 表格标题样式 */
