@@ -1,17 +1,40 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>User Attendance</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户考勤记录</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<h1>用户 <span th:text="${userId}"></span> 考勤记录</h1>
-<table>
-    <tr>
-        <th>考勤时间</th>
-    </tr>
-    <tr th:each="attendanceItem : ${attendance}">
-        <td th:text="${attendanceItem}"></td>
-    </tr>
-</table>
+<div class="container">
+    <h1>用户 <span th:text="${user.name}"></span> 的考勤记录</h1>
+
+    <div th:each="entry : ${attendanceByDate}">
+        <!-- 按 3x2 格式显示每个日期的考勤记录 -->
+        <table class="table">
+            <thead>
+            <tr>
+                <td th:text="${entry.key}"></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <!-- 每一天的打卡时间按行显示 -->
+                <td th:text="${entry.value[0]} != null ? ${entry.value[0]} : ''"></td>
+                <td th:text="${entry.value[1]} != null ? ${entry.value[1]} : ''"></td>
+            </tr>
+            <tr>
+                <td th:text="${entry.value[2]} != null ? ${entry.value[2]} : ''"></td>
+                <td th:text="${entry.value[3]} != null ? ${entry.value[3]} : ''"></td>
+            </tr>
+            <tr>
+                <td th:text="${entry.value[4]} != null ? ${entry.value[4]} : ''"></td>
+                <td th:text="${entry.value[5]} != null ? ${entry.value[5]} : ''"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>

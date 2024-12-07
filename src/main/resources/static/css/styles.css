@@ -84,33 +84,69 @@ body {
     margin-bottom: 20px;
 }
 
+
 /* 表格样式 */
-.user-table {
+table {
     width: 100%;
     border-collapse: collapse;
     margin: 0 auto;
     font-size: 16px;
 }
 
-.user-table thead {
+table thead {
     background-color: #4a90e2;
     color: #ffffff;
 }
 
-.user-table th,
-.user-table td {
+table th,
+table td {
     padding: 12px;
     border: 1px solid #e0e0e0;
     text-align: center;
 }
 
-.user-table tbody tr:nth-child(even) {
+table tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-.user-table tbody tr:hover {
+table tbody tr:hover {
     background-color: #f1f1f1;
 }
+
+
+// 签到表格式
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 16px;
+}
+
+.attendance-table {
+    background-color: #4a90e2;
+    color: #ffffff;
+}
+
+.attendance-table th,
+.attendance-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.attendance-table thead {
+    background-color: #f7f7f7;
+}
+
+.attendance-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.attendance-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
 
 /* 按钮样式 */
 button {
@@ -141,3 +177,4 @@ th {
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
+

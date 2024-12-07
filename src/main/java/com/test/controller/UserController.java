@@ -3,13 +3,17 @@ package com.test.controller;
 import com.test.details.userDetails;
 import com.test.domain.User;
 import com.test.service.UserService;
+import com.test.attendance.attendanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import sun.security.pkcs11.wrapper.CK_TOKEN_INFO;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/users")
@@ -78,15 +82,21 @@ public class UserController {
         }
     }
 
-    // TODO:详情页面，只做了前端的js，后端还没做，先把考勤数据库设计好  1206@bow
+    // TODO:数据改造，按天为单位传入前端
     // 查询用户详情
     @GetMapping("/details")
     public String detailsPage(@RequestParam("id") Long userId, Model model) {
         System.out.println("尝试连接服务层");
         List<LocalDateTime> attendance = userService.getDetail(userId);
+        User user = userService.getUserById(userId);
         System.out.println("获取用户"+userId+"的信息");
+
+        Map<LocalDate, List<String>> attendanceByDate = attendanceService.groupAttendanceByDate(attendance);
+
         model.addAttribute("attendance", attendance);
         model.addAttribute("userId", userId);
+        model.addAttribute("user", user);
+        model.addAttribute("attendanceByDate", attendanceByDate);
         return "userDetail";
     }
 
