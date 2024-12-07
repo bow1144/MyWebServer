@@ -146,6 +146,16 @@ table tbody tr:hover {
     background-color: #f1f1f1;
 }
 
+/* 如果时间是有效的，背景为浅绿色 */
+.valid-time {
+    background-color: #d4edda; /* 绿色背景色 */
+}
+
+/* 如果时间是无效的，背景为浅红色 */
+.invalid-time {
+    background-color: #f8d7da; /* 红色背景色 */
+}
+
 
 
 /* 按钮样式 */

@@ -23,7 +23,36 @@ public class attendanceService {
                 times.add(null); // 填充 null
             }
         }
-
         return grouped;
+    }
+
+    //
+    public static boolean isValid(LocalDateTime dateTime) {
+        if(dateTime == null) return true;
+
+        int hour = dateTime.getHour();
+        int minute = dateTime.getMinute();
+
+        if ((hour == 8 && minute >= 30) ||
+                (hour > 8 && hour < 11) ||
+                (hour == 11 && minute <= 30)) return false;
+        if ((hour == 14 && minute >= 30) ||
+                (hour > 14 && hour < 17) ||
+                (hour == 17 && minute <= 30)) return false;
+        if ((hour == 19 && minute >= 30) ||
+                (hour == 20) ||
+                (hour == 21 && minute <= 30)) return false;
+        return true;
+    }
+
+    public static Map<LocalDate, List<Boolean>> checkAttendanceValidity(List<LocalDateTime> attendance) {
+        return attendance.stream()
+                .collect(Collectors.groupingBy(
+                        LocalDateTime::toLocalDate,  // 按照日期分组
+                        Collectors.mapping(
+                                attendanceService::isValid,  // 判断每个考勤时间是否有效
+                                Collectors.toList()  // 将结果收集为一个列表
+                        )
+                ));
     }
 }

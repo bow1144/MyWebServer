@@ -92,11 +92,13 @@ public class UserController {
         System.out.println("获取用户"+userId+"的信息");
 
         Map<LocalDate, List<String>> attendanceByDate = attendanceService.groupAttendanceByDate(attendance);
+        Map<LocalDate, List<Boolean>> validityMap = attendanceService.checkAttendanceValidity(attendance);
 
         model.addAttribute("attendance", attendance);
-        model.addAttribute("userId", userId);
         model.addAttribute("user", user);
         model.addAttribute("attendanceByDate", attendanceByDate);
+        model.addAttribute("validityMap", validityMap);
+
         return "userDetail";
     }
 
