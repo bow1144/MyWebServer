@@ -33,4 +33,11 @@
     <delete id="deleteUserById" parameterType="java.lang.Long">
         DELETE FROM spring_test.users WHERE id = #{id}
     </delete>
+
+    <!-- 获取一个用户所有考勤记录 -->
+    <select id="getDetailById" parameterType="java.lang.Long" resultType="java.time.LocalDateTime">
+        SELECT update_at
+        FROM spring_test.attendances
+        WHERE id = #{id}
+    </select>
 </mapper>

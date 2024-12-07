@@ -37,6 +37,21 @@ body {
     background-color: #F4D03F;
 }
 
+.detail-user-btn {
+    background-color: #a2d9ce;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+.detail-user-btn:hover {
+    background-color: #73c6b6;
+}
+
 .delete-user-btn {
     background-color: #EC7063;
     color: white;
@@ -101,7 +116,7 @@ body {
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -110,6 +125,14 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+button.detail-btn {
+    background-color: #5dade2  ;
+}
+
+button.detail-btn:hover {
+    background-color: #3498db  ;
 }
 
 /* 表格标题样式 */

@@ -6,6 +6,7 @@ import com.test.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -44,5 +45,11 @@ public class UserService {
     public void deleteUser(Long userId) {
         System.out.println("Try to delete id" + userId);
         userMapper.deleteUserById(userId);  // 调用 Mapper 删除用户
+    }
+
+    // 获取一个用户考勤的列表
+    public List<LocalDateTime> getDetail(Long userId) {
+        System.out.println("Try to get" + userId + "'s detail");
+        return userMapper.getDetailById(userId);
     }
 }

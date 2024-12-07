@@ -33,6 +33,7 @@
             <td>
                 <!-- 修改按钮，点击后跳转到修改页面 -->
                 <button th:attr="onclick='editUser(' + ${u.id} + ')'">修改</button>
+                <button th:attr="onclick='viewDetails(' + ${u.id} + ')'" class="action-btn detail-btn">详情</button>
             </td>
         </tr>
         </tbody>
@@ -51,6 +52,12 @@
     function addUser() {
         // 跳转到编辑页面，不传递参数
         window.location.href = '/users/addUser';
+    }
+
+    // 详细情况
+    function viewDetails(userId) {
+        // 跳转到详情页面
+        window.location.href = '/users/details?id=' + userId;
     }
 </script>
 

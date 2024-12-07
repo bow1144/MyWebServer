@@ -4,6 +4,7 @@ import com.test.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.data.repository.query.Param;
+import java.time.LocalDateTime;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface UserMapper {
     void addUser(User user);
 
     void deleteUserById(Long id);
+
+    List<LocalDateTime> getDetailById(Long id);
 }
