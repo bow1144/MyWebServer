@@ -1,6 +1,5 @@
 package com.test.controller;
 
-import com.test.details.userDetails;
 import com.test.details.userStatistic;
 import com.test.domain.User;
 import com.test.service.UserService;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import sun.security.pkcs11.wrapper.CK_TOKEN_INFO;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
