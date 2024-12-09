@@ -220,7 +220,7 @@ th {
     top: 0; /* 固定从顶部开始 */
     bottom: 0; /* 固定到底部结束 */
     width: 250px;
-    background-color: #A8D8FF;
+    background-color: #E1F2FF;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -238,7 +238,7 @@ th {
     display: block;
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 18px 0;
     background-color: #4a90e2;
     color: #ffffff;
     text-align: center;
