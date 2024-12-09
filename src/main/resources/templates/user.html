@@ -40,6 +40,13 @@
     </table>
 </div>
 
+<div class="sidebar">
+    <h3>更多操作</h3>
+    <a href="#" class="sidebar-btn" onclick="monitorHost()">监控主机</a>
+    <a href="#" class="sidebar-btn" onclick="someOtherAction()">教学日历</a>
+    <a href="#" class="sidebar-btn" onclick="someOtherAction()">成果日志</a>
+</div>
+
 <!-- JavaScript -->
 <script>
     // 编辑用户的函数
@@ -58,6 +65,12 @@
     function viewDetails(userId) {
         // 跳转到详情页面
         window.location.href = '/users/details?id=' + userId;
+    }
+
+    // 监控主机
+    function monitorHost() {
+        // 跳转到主机监控页面
+        window.location.href = '/monitor';
     }
 </script>
 

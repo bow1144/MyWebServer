@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #d6eaf8 ;
+    background-color: #d1edee ;
     color: #333;
     display: flex;
     justify-content: center;
@@ -28,10 +28,11 @@ h1 {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .add-user-btn {
-    background-color: #f7dc6f;
+    background-color: #E2B55D;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -42,7 +43,7 @@ h1 {
 }
 
 .add-user-btn:hover {
-    background-color: #F4D03F;
+    background-color: #D19C42;
 }
 
 .detail-user-btn {
@@ -98,12 +99,14 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 0 auto;
-    font-size: 16px;
+    font-size: 18px;
+    text-align: center;
 }
 
 table thead {
     background-color: #4a90e2;
     color: #ffffff;
+    text-align: center;
 }
 
 table th,
@@ -119,6 +122,10 @@ table tbody tr:nth-child(even) {
 
 table tbody tr:hover {
     background-color: #f1f1f1;
+}
+
+.center_title {
+
 }
 
 
@@ -204,5 +211,43 @@ th {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+}
+
+/* 侧边栏设置 */
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0; /* 固定从顶部开始 */
+    bottom: 0; /* 固定到底部结束 */
+    width: 250px;
+    background-color: #A8D8FF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;  /* 确保侧边栏位于其他元素之上 */
+    overflow-y: auto;
+}
+
+.sidebar h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.sidebar .sidebar-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #4a90e2;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.sidebar .sidebar-btn:hover {
+    background-color: #0056b3;
 }
 

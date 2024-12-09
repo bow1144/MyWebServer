@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户信息</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1 class="title">主机监控信息</h1>
+        <div class="button-container">
+            <!-- 按钮备用-->
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>机主</th>
+            <th>主机名</th>
+            <th>动作</th>
+            <th>时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 使用 Thymeleaf 渲染用户数据 -->
+        <tr th:each="host : ${hosts}">
+            <td th:text="${host.username}"></td>
+            <td th:text="${host.hostname}"></td>
+            <td th:text="${host.status}"></td>
+            <td th:text="${host.timestamp}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
