@@ -1,16 +1,16 @@
 package com.test.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Entity
+
+@Data // 自动生成 Getters, Setters, equals, hashCode, toString 等
+@NoArgsConstructor
+@AllArgsConstructor
 public class HostStatus {
-
-    @Id
-    private String username;
+    private String name;      // 与xml文件中的列名相同
     private String hostname;  // 主机名
     private String status;    // 状态，如 "系统启动", "IE关闭"
     private String timestamp; // 时间戳
-
-    // Getters and Setters
 }

@@ -26,11 +26,11 @@
         </thead>
         <tbody>
         <!-- 使用 Thymeleaf 渲染用户数据 -->
-        <tr th:each="host : ${hosts}">
-            <td th:text="${host.username}"></td>
-            <td th:text="${host.hostname}"></td>
-            <td th:text="${host.status}"></td>
-            <td th:text="${host.timestamp}"></td>
+        <tr th:each="s : ${statuses}">
+            <td th:text="${s.name}"></td>
+            <td th:text="${s.hostname}"></td>
+            <td th:text="${s.status}"></td>
+            <td th:text="${s.timestamp}"></td>
         </tr>
         </tbody>
     </table>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.HostStatusMapper">
+    <!-- 查询近期所有主机状态 -->
+    <select id="getAllStatus" resultType="com.test.domain.HostStatus">
+        SELECT users.name,
+            host_status.hostname,
+            host_status.status,
+            host_status.timestamp
+        FROM host_status, users
+        WHERE host_status.user_id = users.id
+        ORDER BY host_status.timestamp DESC
+        LIMIT 30;
+    </select>
+
+
+</mapper>
