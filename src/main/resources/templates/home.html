@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<div class="container">
+    <h1 class="title">用户登录</h1>
+    <form action="/home" method="post" style="display: flex; flex-direction: column; gap: 20px;">
+        <div>
+            <label for="account" class="label">学号：</label>
+            <input type="text" id="account" name="account" class="input-field" placeholder="请输入账号" required>
+        </div>
+
+        <div>
+            <label for="password" class="label">姓名：</label>
+            <input type="text" id="password" name="password" class="input-field" placeholder="请输入密码" required>
+        </div>
+
+        <button type="submit" style="align-self: center;">log in</button>
+    </form>
+</div>
