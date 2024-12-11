@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>用户登录</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css?v=1.0">
 </head>
 <body>
 <div class="container">
     <div class="header">
         <h1 class="title">用户登录</h1>
     </div>
+
+    <!-- 错误信息显示 -->
+    <div th:if="${error != null}" style="color: red; font-weight: bold; text-align: center;">
+        <p th:text="${error}"></p>
+    </div>
+
     <form action="/login" method="post" style="display: flex; flex-direction: column; gap: 20px;">
         <!-- 隐藏字段，用于传递额外信息（例如 CSRF） -->
         <input type="hidden">
 
         <div>
-            <label for="username" style="font-weight: bold; margin-bottom: 5px; display: block;">账号：</label>
-            <input type="text" id="username" name="username" placeholder="请输入账号" required
+            <label for="account" style="font-weight: bold; margin-bottom: 5px; display: block;">账号：</label>
+            <input type="text" id="account" name="account" placeholder="请输入账号" required
                    style="padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
         </div>
 
@@ -31,9 +37,12 @@
     </form>
 
     <div class="footer" style="margin-top: 20px; text-align: center;">
-        <a href="/home/forgot-password" style="color: #007bff; text-decoration: none;">忘记密码？</a>
+        <a href="/login/forgot-password" style="color: #007bff; text-decoration: none;">忘记密码？</a>
     </div>
 </div>
 
+<script>
+
+</script>
 </body>
 </html>

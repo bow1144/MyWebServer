@@ -5,6 +5,7 @@ import com.test.domain.User;
 import com.test.service.UserService;
 import com.test.attendance.attendanceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
