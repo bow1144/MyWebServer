@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用户信息</title>
+    <title>监控主机信息</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
@@ -18,19 +18,30 @@
     <table class="table">
         <thead>
         <tr>
-            <th>机主</th>
+            <th>ID</th>
             <th>主机名</th>
-            <th>动作</th>
-            <th>时间</th>
+            <th>IP地址</th>
+            <th>状态</th>
+            <th>操作系统</th>
+            <th>CPU型号</th>
+            <th>CPU占用率</th>
+            <th>内存占有率</th>
+            <th>登录时间</th>
+
         </tr>
         </thead>
         <tbody>
         <!-- 使用 Thymeleaf 渲染用户数据 -->
-        <tr th:each="s : ${statuses}">
-            <td th:text="${s.name}"></td>
-            <td th:text="${s.hostname}"></td>
-            <td th:text="${s.status}"></td>
-            <td th:text="${s.timestamp}"></td>
+        <tr th:each="d : ${details}">
+            <td th:text="${d.id}"></td>
+            <td th:text="${d.deviceName}"></td>
+            <td th:text="${d.ipAddress}"></td>
+            <td th:text="${d.status}"></td>
+            <td th:text="${d.osVersion}"></td>
+            <td th:text="${d.cpuModel}"></td>
+            <td th:text="${d.cpuUsage}"></td>
+            <td th:text="${d.memoryUsage}"></td>
+            <td th:text="${d.loginTime}"></td>
         </tr>
         </tbody>
     </table>
