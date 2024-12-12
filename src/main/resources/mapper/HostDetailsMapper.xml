@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.test.mapper.HostDetailsMapper">
-
+    <!-- 一定要映射，不知道为什么MyBaits不做驼峰下划线变换了 -->
     <resultMap id="HostDetailsResultMap" type="com.test.domain.HostDetails">
         <id property="id" column="id" />
         <result property="deviceName" column="device_name" />
@@ -28,6 +28,8 @@
     <select id="getAllDetails" resultType="com.test.domain.HostDetails" resultMap="HostDetailsResultMap">
         SELECT device_name, ip_address, status, cpu_usage, memory_usage, login_time, cpu_model, os_version
         FROM spring_test.host_details
+        ORDER BY id DESC
+        LIMIT 10
     </select>
 
 </mapper>

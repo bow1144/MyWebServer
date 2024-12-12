@@ -6,12 +6,20 @@ import java.lang.management.ManagementFactory;
 import com.sun.management.OperatingSystemMXBean;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.UnknownHostException;
 
 public class Local {
 
     // 获取本地系统的设备名称（设备名称一般可以自定义，这里以"Client_Device_01"为示例）
     public String getDeviceName() {
-        return "Client_Device_01";
+        // 获取本地机器的 InetAddress
+        try {
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            return inetAddress.getHostName();  // 返回本机的IP地址
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Unknown Device Name";  // 如果获取失败，返回"Unknown IP"
+        }
     }
 
     // 获取本地IP地址
@@ -33,8 +41,9 @@ public class Local {
     // 获取CPU使用率（百分比）
     public double getCPUUsage() {
         OperatingSystemMXBean osBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
-        // 获取系统的CPU负载
-        return osBean.getSystemCpuLoad() * 100;  // 转换为百分比
+        // 计算 CPU 使用率（假设在 Linux 或其他 Unix-like 系统上）
+        double cpuLoad = osBean.getSystemCpuLoad();        // 获取系统的CPU负载
+        return cpuLoad * 100;  // 转换为百分比
     }
 
     // 获取内存使用率（百分比）

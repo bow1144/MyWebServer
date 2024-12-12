@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DecimalFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -25,6 +26,13 @@ public class MonitorController {
     @GetMapping()
     public String monitorPage(Model model) {
         List<HostDetails> details = monitorService.getAllDetails();
+        // 格式化数据
+        DecimalFormat decimalFormat = new DecimalFormat("#.0");
+        for (HostDetails detail : details) {
+            // 格式化 cpuUsage 和 memoryUsage
+            detail.setCpuUsage(Double.parseDouble(decimalFormat.format(detail.getCpuUsage())));
+            detail.setMemoryUsage(Double.parseDouble(decimalFormat.format(detail.getMemoryUsage())));
+        }
         System.out.println("Details datas:" + details);
         model.addAttribute("details", details);
         return "monitor"; // 这里假设返回一个 Thymeleaf 模板
